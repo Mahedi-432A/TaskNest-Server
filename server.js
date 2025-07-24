@@ -31,3 +31,7 @@ app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 // Import task routes
 const taskRoutes = require('./routes/taskRoutes');
 app.use('/api/tasks', taskRoutes);
+
+// server.js
+const authRoutes = require('./routes/auth.routes');
+app.use('/api/auth', authRoutes);
