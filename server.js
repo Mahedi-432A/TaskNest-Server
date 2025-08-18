@@ -24,16 +24,17 @@ mongoose.connect(process.env.MONGO_URI, {
 .then(() => console.log('MongoDB connected ✅'))
 .catch((err) => console.error('MongoDB connection error:', err));
 
-// Server start
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
 
 // Import task routes
 const taskRoutes = require('./routes/taskRoutes');
 app.use('/api/tasks', taskRoutes);
 
-// server.js
+// Import auth routes
 const authRoutes = require('./routes/auth.routes');
 app.use('/api/auth', authRoutes);
 
-console.log('JWT_SECRET: ', process.env.JWT_SECRET);
+
+// Server start
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
