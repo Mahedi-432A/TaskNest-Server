@@ -18,8 +18,8 @@ app.get('/', (req, res) => {
 
 // MongoDB connection
 mongoose.connect(process.env.MONGO_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
+  // useNewUrlParser: true,
+  // useUnifiedTopology: true
 })
 .then(() => console.log('MongoDB connected ✅'))
 .catch((err) => console.error('MongoDB connection error:', err));
@@ -35,3 +35,5 @@ app.use('/api/tasks', taskRoutes);
 // server.js
 const authRoutes = require('./routes/auth.routes');
 app.use('/api/auth', authRoutes);
+
+console.log('JWT_SECRET: ', process.env.JWT_SECRET);
