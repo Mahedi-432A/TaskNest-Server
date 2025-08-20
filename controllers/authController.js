@@ -25,7 +25,7 @@ const registerUser = async (req, res) => {
 
     const user = await User.create({ name, email, password });
 
-    console.log('✅ User registered:', user.email);
+    // console.log('✅ User registered:', user.email);
 
     res.status(201).json({
       _id: user._id,
@@ -35,7 +35,7 @@ const registerUser = async (req, res) => {
     });
   } catch (err) {
     // --------------------------
-    console.error('Register Error:', err.message);
+    // console.error('Register Error:', err.message);
     res.status(500).json({ message: 'Server error' });
   }
 };
